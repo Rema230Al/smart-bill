@@ -1,0 +1,24 @@
+{
+  "name": "smart-bill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rema230Al/smart-bill.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Rema230Al/smart-bill/issues"
+  },
+  "homepage": "https://github.com/Rema230Al/smart-bill#readme",
+  "dependencies": {
+    "tesseract.js": "^7.0.0"
+  }
+}
