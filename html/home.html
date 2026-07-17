@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+     <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="../home.css">
+</head>
+
+<body>
+
+
+
+    <header class="site-header">
+
+        <nav class="navbar" aria-label="Main navigation">
+
+            <a href="index.html" class="logo" aria-label="ReceiptVault home page">
+
+                <!-- <span class="logo-icon" aria-hidden="true"> </span> -->
+
+                <span class="logo-text">
+                    Receipt<span>Vault</span>
+                </span>
+            </a>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html" class="active" aria-current="page">Home</a>
+                </li>
+
+                <li>
+                    <a href="upload.html">Upload</a>
+                </li>
+
+                <li>
+                    <a href="receipts.html">All Receipts</a>
+                </li>
+
+                <li>
+                    <a href="#features">Features</a>
+                </li>
+
+            </ul>
+
+
+            <div class="nav-actions">
+
+                <a href="signin.html"class="login-link">Log in</a>
+
+                <a
+                    href="signup.html"
+                    class="primary-button small-button"
+                >
+                    Get Started
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main id="main-content">
+
+        <section
+            class="hero"
+            aria-labelledby="hero-heading"
+        >
+
+            <div class="hero-content">
+
+                <p class="badge">
+                    Smart. Simple. Secure.
+                </p>
+
+
+                <h1 id="hero-heading">
+                    Store every receipt.
+
+                    <span>
+                        Never lose one again.
+                    </span>
+                </h1>
+
+
+                <p class="hero-description">
+                    Upload receipts, extract important details automatically,
+                    and organize your expenses in one place.
+                </p>
+
+
+                <div
+                    class="hero-actions"
+                    aria-label="Receipt actions"
+                >
+
+                    <a
+                        href="upload.html"
+                        class="primary-button"
+                    >
+                        <span aria-hidden="true">
+                            ↑
+                        </span>
+
+                        Upload Receipt
+                    </a>
+
+
+                    <a
+                        href="#features"
+                        class="secondary-button"
+                    >
+                        Learn More
+                    </a>
+
+                </div>
+
+
+                <section
+                    class="features"
+                    id="features"
+                    aria-labelledby="features-heading"
+                >
+
+                    <h2
+                        id="features-heading"
+                        class="visually-hidden"
+                    >
+                        ReceiptVault features
+                    </h2>
+
+
+                    <article class="feature">
+
+                        <div
+                            class="feature-icon"
+                            aria-hidden="true"
+                        >
+                            ✦
+                        </div>
+
+                        <div>
+                            <h3>
+                                Smart Extraction
+                            </h3>
+
+                            <p>
+                                Automatically detect the store,
+                                date, total, and other receipt details.
+                            </p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="feature">
+
+                        <div
+                            class="feature-icon"
+                            aria-hidden="true"
+                        >
+                            ♢
+                        </div>
+
+                        <div>
+                            <h3>
+                                Secure Storage
+                            </h3>
+
+                            <p>
+                                Keep your receipt information securely stored
+                                and protected.
+                            </p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="feature">
+
+                        <div
+                            class="feature-icon"
+                            aria-hidden="true"
+                        >
+                            ▱
+                        </div>
+
+                        <div>
+                            <h3>
+                                Easy Organization
+                            </h3>
+
+                            <p>
+                                Search and find any saved receipt
+                                within seconds.
+                            </p>
+                        </div>
+
+                    </article>
+
+                </section>
+
+            </div>
+
+
+            <div
+                class="hero-visual"
+                aria-label="Example of an extracted receipt"
+            >
+
+                <div
+                    class="decoration-circle circle-one"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    class="decoration-circle circle-two"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    class="dot-pattern"
+                    aria-hidden="true"
+                ></div>
+
+
+                <article
+                    class="receipt-card"
+                    aria-labelledby="receipt-store"
+                >
+
+                    <header class="receipt-header">
+
+                        <div
+                            class="store-icon"
+                            aria-hidden="true"
+                        >
+                            ☕
+                        </div>
+
+                        <h2 id="receipt-store">
+                            Starbucks
+                        </h2>
+
+                    </header>
+
+
+                    <dl class="receipt-details">
+
+                        <div class="receipt-detail-row">
+                            <dt>Date</dt>
+
+                            <dd>
+                                <time datetime="2024-07-17">
+                                    17 Jul 2024
+                                </time>
+                            </dd>
+                        </div>
+
+                    </dl>
+
+
+                    <h3 class="receipt-section-title">
+                        Items
+                    </h3>
+
+
+                    <ul class="receipt-items">
+
+                        <li>
+                            <span>Caffè Latte</span>
+                            <span aria-label="4 dollars and 75 cents">
+                                $4.75
+                            </span>
+                        </li>
+
+                        <li>
+                            <span>Blueberry Muffin</span>
+                            <span aria-label="3 dollars and 25 cents">
+                                $3.25
+                            </span>
+                        </li>
+
+                    </ul>
+
+
+                    <dl class="receipt-summary">
+
+                        <div>
+                            <dt>Tax</dt>
+
+                            <dd aria-label="64 cents">
+                                $0.64
+                            </dd>
+                        </div>
+
+                        <div class="receipt-total">
+                            <dt>Total</dt>
+
+                            <dd aria-label="8 dollars and 64 cents">
+                                $8.64
+                            </dd>
+                        </div>
+
+                    </dl>
+
+
+                    <div class="barcode" role="img" aria-label="Decorative receipt barcode">
+
+
+                        <!-- span for the QR -->
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <p>@2026 Remas Nafea Alsulami </p>
+    </footer>
+
+</body>
+</html>
