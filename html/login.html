@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to your ReceiptVault account.">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/sign.css">
+</head>
+
+<body class="login-page">
+
+    <!-- <a href="#login-form" class="skip-link">Skip to login form</a> -->
+
+    <main class="login-main">
+
+        <section class="login-left" aria-labelledby="welcome-title">
+
+            <a href="index.html" class="logo" aria-label="ReceiptVault home page">
+                <span class="logo-icon" aria-hidden="true">▣</span>
+                <span>ReceiptVault</span>
+            </a>
+
+            <div class="welcome-text">
+                <h1 id="welcome-title">Welcome back!</h1>
+                <p>Sign in to access your receipts and manage your expenses.</p>
+            </div>
+
+            <img src="images/receipt-3d.png" alt="A 3D illustration of a digital receipt" class="login-image">
+
+        </section>
+
+        <section class="login-right" aria-labelledby="login-title">
+
+             <div class="right-pattern" aria-hidden="true">
+            <img src="../assets/receipt.png" alt="" class="pattern-icon receipt-one">
+            <img src="../assets/barcode.png" alt="" class="pattern-icon barcode-one">
+            <img src="../assets/receipt.png" alt="" class="pattern-icon receipt-two">
+            <img src="../assets/barcode.png" alt="" class="pattern-icon barcode-two">
+            <img src="../assets/receipt.png" alt="" class="pattern-icon receipt-three">
+            <img src="../assets/barcode.png" alt="" class="pattern-icon barcode-three">
+            <img src="../assets/receipt.png" alt="" class="pattern-icon receipt-four">
+            <img src="../assets/barcode.png" alt="" class="pattern-icon barcode-four">
+        </div>
+
+            <form class="login-box" id="login-form" action="#" method="post">
+
+                <h2 id="login-title">Sign In</h2>
+
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" minlength="8" required>
+                </div>
+
+               
+
+                <button type="submit" class="main-btn">Sign In</button>
+
+                <p class="signup-text">Don’t have an account? <a href="signup.html">Sign up</a></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

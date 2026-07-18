@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upload a receipt or enter its information manually.">
+    <title>New Receipt</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/new-receipt.css">
+</head>
+
+<body class="app-page">
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="top-bar">
+
+        <a href="index.html" class="logo" aria-label="ReceiptVault home page">
+            <span class="logo-icon" aria-hidden="true">TEMMP</span>
+            <span>ReceiptVault</span>
+        </a>
+
+        <div class="user-box">
+
+            <a href="profile.html" class="user-btn" aria-label="Open user profile">
+                <img src="#"alt="">
+            </a>
+
+        </div>
+
+    </header>
+
+    <div class="app-layout">
+
+        <aside class="side-bar">
+
+            <nav aria-label="Main navigation">
+
+                <ul class="side-links">
+
+                    <li>
+                        <a href="index.html">
+                            <span aria-hidden="true">⌂</span>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="upload.html" class="active" aria-current="page">
+                            <span aria-hidden="true">⇧</span>
+                            <span>Upload</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="receipts.html">
+                            <span aria-hidden="true">TEMP</span>
+                            <span>All Receipts</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+            </nav>
+
+            <a href="login.html" class="logout-link">
+                <span aria-hidden="true">↪</span>
+                <span>Log out</span>
+            </a>
+
+        </aside>
+
+        <main class="page-content" id="main-content">
+
+            <header class="page-title">
+                <h1>Upload Receipt</h1>
+                <p>Add the details manually or upload a receipt and let our AI extract the information.</p>
+            </header>
+
+            <form class="upload-layout" action="#" method="post" enctype="multipart/form-data">
+
+                <section class="receipt-form" aria-labelledby="receipt-title">
+
+                    <h2 id="receipt-title">Receipt Information</h2>
+
+                    <div class="input-box">
+                        <label for="store">Store Name</label>
+                        <input type="text" id="store" name="store" placeholder="e.g. Starbucks" autocomplete="organization" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="input-box">
+                            <label for="total">Total Amount</label>
+                            <input type="number" id="total" name="total" placeholder="e.g. 36.50" min="0" step="0.01" inputmode="decimal" required>
+                        </div>
+
+                        <div class="input-box small-input">
+                            <label for="currency">Currency</label>
+                            <select id="currency" name="currency" required>
+                                <option value="">Select</option>
+                                <option value="SAR">SAR</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                            </select>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="tax">Tax <span class="optional">(optional)</span></label>
+                            <input type="number" id="tax" name="tax" placeholder="e.g. 3.25" min="0" step="0.01" inputmode="decimal">
+                        </div>
+
+                    </div>
+
+                    <fieldset class="category-box">
+
+                        <legend>Category</legend>
+
+                        <div class="category-list">
+
+                            <!-- <label class="category-btn">
+                                <input type="radio" name="category" value="food" required>
+                                <span>Food</span>
+                            </label>
+
+                            <label class="category-btn">
+                                <input type="radio" name="category" value="shopping">
+                                <span>Shopping</span>
+                            </label>
+
+                            <label class="category-btn">
+                                <input type="radio" name="category" value="transport">
+                                <span> Transport</span>
+                            </label>
+
+                            <label class="category-btn">
+                                <input type="radio" name="category" value="health">
+                                <span>Health</span>
+                            </label>
+
+                            <label class="category-btn">
+                                <input type="radio" name="category" value="other">
+                                <span>Other</span>
+                            </label> -->
+
+                        </div>
+
+                    </fieldset>
+
+                    <div class="input-box">
+                        <label for="notes">Notes <span class="optional">(optional)</span></label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Add any notes about this receipt..."></textarea>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="main-btn">Save Receipt</button>
+                        <button type="reset" class="clear-btn">Clear</button>
+                    </div>
+
+                </section>
+
+                <section class="upload-side" aria-labelledby="upload-title">
+
+                    <div class="upload-box">
+
+                        <h2 id="upload-title">Upload Receipt</h2>
+
+                        <div class="upload-icon" aria-hidden="true">up-ico</div>
+
+                        <p>Choose a receipt image or PDF from your device.</p>
+
+                        <label for="receipt-file" class="file-btn">Choose File</label>
+
+                        <input type="file" id="receipt-file" name="receipt-file" class="file-input" accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf">
+
+                        <p class="file-text">PNG, JPG or PDF up to 10MB</p>
+
+                    </div>
+
+                    <aside class="ai-box" aria-labelledby="ai-title">
+
+                        <!-- <span class="ai-icon" aria-hidden="true"></span> -->
+
+                        <div>
+                            <h3 id="ai-title">AI Extraction</h3>
+                            <p>We’ll automatically extract the store, date, total and other details from your receipt.</p>
+                        </div>
+
+                    </aside>
+
+                </section>
+
+            </form>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
