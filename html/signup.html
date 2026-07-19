@@ -16,16 +16,22 @@
         <section class="login-left" aria-labelledby="welcome-title">
 
             <a href="home.html" class="logo" aria-label="ReceiptVault home page">
-                <span class="logo-icon" aria-hidden="true">TEEMP</span>
+                <!-- <span class="logo-icon" aria-hidden="true">TEEMP</span> -->
                 <span>ReceiptVault</span>
             </a>
 
             <div class="welcome-text">
-                <h1 id="welcome-title">Join ReceiptVault!</h1>
+                <h1 id="welcome-title">START <span class="back">TRACKING</span></h1>
                 <p>Create your account and start organizing your receipts with ease.</p>
             </div>
 
-            <!-- <img src="../assets/receipt.png" alt="A digital receipt illustration" class="login-image"> -->
+           <div class="receipt-flow" aria-label="Invoice saved to digital wallet">
+                <!-- <img src="../assets/sig.png" alt="Invoice" class="signature"> -->
+                 <span class="signature">Total</span>
+                 <span class="signature">$8.64</span>
+                 <span class="signature date" >Jul 19,2026</span>
+               
+            </div>
 
         </section>
 
@@ -37,14 +43,18 @@
             <img src="../assets/receipt.png" alt="" class="pattern-icon receipt-two">
             <img src="../assets/barcode.png" alt="" class="pattern-icon barcode-two">
             <img src="../assets/receipt.png" alt="" class="pattern-icon receipt-three">
-            <img src="../assets/barcode.png" alt="" class="pattern-icon barcode-three">
+            <img src="../assets/total.png" alt="" class="pattern-icon barcode-three">
             <img src="../assets/receipt.png" alt="" class="pattern-icon receipt-four">
-            <img src="../assets/barcode.png" alt="" class="pattern-icon barcode-four">
+            <!-- <img src="../assets/barcode.png" alt="" class="pattern-icon barcode-four"> -->
         </div>
 
             <form class="login-box" id="signup-form" action="#" method="post">
 
-                <h2 id="signup-title">Creat Account</h2>
+                <h2 id="signup-title">Create Account</h2>
+                <p class="signup-text">
+                    Already have an account?
+                    <a href="login.html">Sign In</a>
+                </p>
                
                 <div class="input-box">
                     <label for="fullname">Full Name</label>
@@ -61,17 +71,10 @@
                     <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password" minlength="8" required>
                 </div>
 
-                <div class="input-box">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" autocomplete="new-password" minlength="8" required>
-                </div>
-
+               
                 <button type="submit" class="main-btn">Create Account</button>
 
-                <p class="signup-text">
-                    Already have an account?
-                    <a href="login.html">Sign In</a>
-                </p>
+                
 
             </form>
 

@@ -12,18 +12,25 @@
 .login-left {
     position: relative;
     width: 50%;
-    padding: 60px;
+    padding: 0 60px 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: var(--text-primary);
-    text-align: center;
+    text-align: left;
     background:
         radial-gradient(circle at 20% 20%, var(--surface-light) 0, transparent 30%),
         radial-gradient(circle at 80% 80%, var(--secondary) 0, transparent 35%),
         var(--primary-light);
     background-color: var(--primary-blue);
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 110px,
+        rgba(252, 250, 246, 0.05) 110px,
+        rgba(252, 250, 246, 0.05) 111px
+    );
 }
 
 .logo {
@@ -51,28 +58,64 @@
     transform: rotate(-5deg);
 }
 
+
+.welcome-text {
+    width: 100%;
+    max-width: 440px;
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .welcome-text h1 {
-    margin-bottom: 15px;
+    margin: 20px 0 18px 0;
+    color: var(--light-brwon);
     font-size: 42px;
-    line-height: 1.15;
+    line-height: 1.12;
+}
+
+.welcome-text h1 span {
+    display: block;
+}
+
+.back {
+    color: #B67F1E;
 }
 
 .welcome-text p {
     max-width: 420px;
-    color: var(--text-secondary);
+    margin: 0;
+    color: var(--info);
     font-size: 18px;
     line-height: 1.7;
 }
 
-.login-image {
-    width: 340px;
-    max-width: 100%;
-    margin-top: 50px;
+
+.receipt-flow {
+    position: relative;
+    display: flex;
+    align-items:first baseline;
+    padding: 0;
+    width: 300px;
+    gap: 15px;
+    /* right: 9rem; */
+    bottom: 1rem;
 }
 
+.signature {
+    opacity: 35%;
+    color: var( --info);
+    /* margin-right: 4rem; */
+     color: #B67F1E;
+}
+
+.signature.date {
+    margin-left: 7rem;
+ 
+}
 .login-right {
     position: relative;
-    width: 50%;
+    width: 120%;
     padding: 40px;
     display: flex;
     justify-content: center;
@@ -96,77 +139,50 @@
     filter: grayscale(1);
 }
 
-.receipt-one {
-    top: 5%;
-    left: 7%;
-    width: 70px;
-    transform: rotate(-8deg);
-}
+.receipt-one { top: 5%; left: 7%; width: 70px; transform: rotate(-8deg); }
+.barcode-one { top: 6%; right: 7%; width: 145px; transform: rotate(5deg); }
+.receipt-two { top: 34%; right: 4%; width: 80px; transform: rotate(10deg); }
+.barcode-two { top: 42%; left: 3%; width: 135px; transform: rotate(-4deg); }
+.receipt-three { right: 8%; bottom: 5%; width: 75px; transform: rotate(8deg); }
+.barcode-three { bottom: 7%; left: 7%; width: 145px; transform: rotate(4deg); }
+.receipt-four { top: 14%; left: 43%; width: 55px; transform: rotate(5deg); }
+.barcode-four { bottom: 3%; left: 45%; width: 110px; transform: rotate(-3deg); }
 
-.barcode-one {
-    top: 6%;
-    right: 7%;
-    width: 145px;
-    transform: rotate(5deg);
-}
-
-.receipt-two {
-    top: 34%;
-    right: 4%;
-    width: 80px;
-    transform: rotate(10deg);
-}
-
-.barcode-two {
-    top: 42%;
-    left: 3%;
-    width: 135px;
-    transform: rotate(-4deg);
-}
-
-.receipt-three {
-    right: 8%;
-    bottom: 5%;
-    width: 75px;
-    transform: rotate(8deg);
-}
-
-.barcode-three {
-    bottom: 7%;
-    left: 7%;
-    width: 145px;
-    transform: rotate(4deg);
-}
-
-.receipt-four {
-    top: 14%;
-    left: 43%;
-    width: 55px;
-    transform: rotate(5deg);
-}
-
-.barcode-four {
-    bottom: 3%;
-    left: 45%;
-    width: 110px;
-    transform: rotate(-3deg);
-}
 
 .login-box {
     position: relative;
     z-index: 2;
+    width: 30rem;
     margin-top: 3.5rem;
-    width: 25rem;
-    /* max-width: 40rem; */
+    padding: 2.5rem 2rem;
+    border: 2px solid var(--input);
     border-radius: 1.5rem;
-    background-color: var(--off-white);
+    background-color: var(--white);
+    box-sizing: border-box;
 }
 
 .login-box h2 {
-    margin-bottom: 2rem;
-    margin-left: 1rem;
+    margin: 0 0 0.5rem 0;
     color: var(--text-primary);
     font-size: 30px;
+    font-weight: 800;
+}
+
+.signup-text {
+    margin: 0 0 2rem 0;
+    color: var(--text-secondary);
+    text-align: left;
+    font-size: 15px;
+}
+
+.signup-text a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
 }
 
 .form-text {
@@ -177,28 +193,28 @@
 .input-box {
     display: flex;
     flex-direction: column;
+    width: 100%;
     margin-bottom: 20px;
-    margin-left: 1.5rem;
 }
 
 .input-box label {
     margin-bottom: 8px;
     color: var(--text-primary);
-    font-weight: 300;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .input-box input {
-    width: 80%;
+    width: 100%;
     padding: 14px;
     color: var(--text-primary);
-    background: var(--surface);
-    border: 1px solid var(--border-color);
+    background-color: var(--input);
+    border: 2px solid var(--border-color);
     border-radius: 10px;
     outline: none;
     font-family: inherit;
     font-size: 16px;
-    background-color: var(--border);
+    box-sizing: border-box;
     transition:
         border-color 180ms ease,
         box-shadow 180ms ease,
@@ -252,16 +268,13 @@
 .login-options a:hover {
     text-decoration: underline;
 }
-
 .main-btn {
     width: 100%;
-    padding: 15px;
+    padding: 16px;
+    margin-top: 0.5rem;
     color: var(--surface);
-    background: linear-gradient(
-        135deg,
-        var(--primary-light),
-        var(--primary)
-    );
+    background-color: var(--primary-blue);
+    color: var(--text);
     border: none;
     border-radius: 10px;
     font-family: inherit;
@@ -284,22 +297,6 @@
 .main-btn:focus-visible {
     outline: 3px solid var(--secondary);
     outline-offset: 3px;
-}
-
-.signup-text {
-    margin-top: 25px;
-    color: var(--text-secondary);
-    text-align: center;
-}
-
-.signup-text a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.signup-text a:hover {
-    text-decoration: underline;
 }
 
 .skip-link {
