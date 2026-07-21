@@ -109,7 +109,8 @@
     opacity: 35%;
     color: var(--info);
     font-family: "DM Sans", Arial, Helvetica, sans-serif;
-    color: #B67F1E;
+    /* color: #B67F1E; */
+    color: #B8B2A2;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 15px;
 }
