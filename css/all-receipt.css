@@ -1,0 +1,113 @@
+body.app-page {
+     background-color: #e9e5dc56;
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 110px,
+        rgba(97, 69, 55, 0.171) 110px,
+        rgba(50, 38, 32, 0.04) 111px
+    );
+    color: var( --primary-blue);
+    font-family: "DM Sans", Arial, Helvetica, sans-serif;
+}
+
+.all-receipts {
+    padding: 32px;
+    height: 32rem;
+}
+
+.all-receipts h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    color: var(--primary-blue);
+    margin: 0 0 24px;
+}
+
+.receipt-row {
+    display: flex;
+    gap: 28px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.receipt-stack {
+    position: relative;
+    flex-shrink: 0;
+    width: 200px;
+    height: 230px;
+    cursor: pointer;
+}
+
+.paper-layer {
+    position: absolute;
+    inset: 0;
+    background: var(--white);
+}
+
+.layer-1 {
+    box-shadow: 0 3px 8px rgba(50, 38, 32, 0.1);
+    transform: rotate(-3deg);
+}
+
+.layer-2 {
+    box-shadow: 0 4px 10px rgba(50, 38, 32, 0.12);
+    transform: rotate(2deg);
+}
+
+.receipt-content {
+    position: relative;
+    background: var(--white);
+    box-shadow: 0 6px 16px rgba(50, 38, 32, 0.16);
+    height: 100%;
+    padding: 14px 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.receipt-date {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    color: #B67F1E;
+    margin: 0 0 6px;
+    font-weight: 600;
+}
+
+.receipt-store {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin: 8px 0 8px;
+    color: var( --primary-blue);
+}
+
+.receipt-line {
+    border-top: 1px dashed var(--beige);
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.receipt-total {
+    /* font-family: "IBM Plex Mono", monospace; */
+    font-size: 13px;
+    /* color: var(--red); */
+    font-weight: 500;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    font-weight: 30px;
+    color: #B67F1E;
+}
+
+.hint-text {
+    font-size: 5px;
+    margin: 25px 0 0;
+    font-size: 14px;
+    color: #8A8474;
+    line-height: 1.7;
+}
