@@ -43,6 +43,7 @@ body {
 
 .highlight {
     color:var(--red);
+    color: #B67F1E;
 }
 
 .hero-desc {
