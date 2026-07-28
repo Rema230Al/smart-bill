@@ -1,12 +1,13 @@
-const express = require('express');
-const app = express();
+const express =require('express');
+const app= express();
 
-const PORT = 3000;
+app.listen(3000);
 
-app.get('/', (req, res) => {
-    res.send('Server is running');
-});
+//the res and req object the express add more functionality for them
+app.get("/",function(req,res){
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+    res.send('this the hompage')
+})
+
+//thatt mean every request as json -- use metho
+app.use(express.json());
