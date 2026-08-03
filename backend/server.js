@@ -9,12 +9,15 @@ const {extractText}= require("./services/ocrService");
 const {parseReceiptText}= require('./services/receiptService');
 
 
-app.post("/receipt/scan",upload.single("receipt"),async (req,res) => {
-    
+app.post("/receipts/scan",upload.single("receipt"),async (req,res) => {
+
     try{
     const rawText =await extractText(req.file.path);
     const text = parseReceiptText(rawText);
-    res.status(3000).json(text);
+     res.status(200).json({
+            ...text,
+            imagePath: req.file.path   
+        });
 
     }catch(err){
         console.log("the error is"+err);
@@ -23,8 +26,13 @@ app.post("/receipt/scan",upload.single("receipt"),async (req,res) => {
 
 })
 
+app.get('/all-receipt',(req,res)=>{
 
+})
 
+//sign in endpoint
+//login endpoint
+//auth
 
 mongoose.connect(process.env.MONGO_URL)
     .then(()=> console.log("MongooDB Connect"))
