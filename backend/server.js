@@ -26,7 +26,7 @@ app.post("/receipts/scan",upload.single("receipt"),async (req,res) => {
 
 })
 
-app.get('/all-receipt',(req,res)=>{
+app.get('/all-receipts',(req,res)=>{
 
 })
 
@@ -35,8 +35,7 @@ app.get('/all-receipt',(req,res)=>{
 //auth
 
 mongoose.connect(process.env.MONGO_URL)
-    .then(()=> console.log("MongooDB Connect"))
+    .then(()=> app.listen(3000))
     .catch((err)=> console.log("Mongo connection err"+ err))
 
 
-app.listen(3000);
