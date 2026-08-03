@@ -1,6 +1,8 @@
 //to connect with env file
 require('dotenv').config();
 const mongoose = require('mongoose');
+const userSchemas = require("./models/user");
+const receiptSchema = require("./models/receipt");
 const express = require("express");
 const multer = require("multer");
 const upload = multer({dest:"/upload"});
