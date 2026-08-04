@@ -1,8 +1,8 @@
-//to connect with env file
 require('dotenv').config();
 const mongoose = require('mongoose');
 const userSchemas = require("./models/user");
 const receiptSchema = require("./models/receipt");
+const jwt = require("jsonwebtoken");
 const express = require("express");
 const multer = require("multer");
 const upload = multer({dest:"/upload"});
@@ -37,7 +37,8 @@ app.get('/all-receipts',(req,res)=>{
 //auth
 
 mongoose.connect(process.env.MONGO_URL)
-    .then(()=> app.listen(3000))
+    .then(()=> {app.listen(3000);
+    console.log("DB connect")})
     .catch((err)=> console.log("Mongo connection err"+ err))
 
 
