@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const User = require("./models/user");
-const receiptSchema = require("./models/receipt");
+const Receipt = require("./models/receipt");
 const encry = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const express = require("express");
@@ -14,25 +14,47 @@ const {extractText}= require("./services/ocrService");
 const {parseReceiptText}= require('./services/receiptService');
 
 
-app.post("/receipts/scan",upload.single("receipt"),async (req,res) => {
+// app.post("/receipts/scan",upload.single("receipt"),async (req,res) => {
+
+//     try{
+//     const rawText =await extractText(req.file.path);
+//     const text = parseReceiptText(rawText);
+//      res.status(200).json({
+//             ...text,
+//             imagePath: req.file.path   
+//         });
+
+//     }catch(err){
+//         console.log("the error is"+err);
+//         res.status(404).json({error: "error"+err})
+//     }
+
+// })
+
+
+app.post('/receipts',authMiddleware,async (req,res)=>{
 
     try{
-    const rawText =await extractText(req.file.path);
-    const text = parseReceiptText(rawText);
-     res.status(200).json({
-            ...text,
-            imagePath: req.file.path   
-        });
+
+        const{storeName,date,total,category,notes,imagePath,userId}=req.body;
+
+        const receipt= new Receipt({
+            storeName,
+            date,
+            toal,
+            category,
+            notes,
+            imagePath,
+            userId:req.user.id
+        })
+        receipt.save();
+
+        res.status(202).json({message:"Valid receipt"},receipt);
 
     }catch(err){
-        console.log("the error is"+err);
-        res.status(404).json({error: "error"+err})
+    res.status(500).json({message:"Falid to save receipt:"},err);
+
     }
-
-})
-
-app.get('/all-receipts',(req,res)=>{
-
 })
 
 app.post("/signup", async(req,res)=>{
@@ -40,20 +62,20 @@ app.post("/signup", async(req,res)=>{
     try{
 
     
-    const { name, email, password} =req.body;
-    const isMatch = await User.findOne({email});
+        const { name, email, password} =req.body;
+        const isMatch = await User.findOne({email});
 
-    if(isMatch){
-        return res.status(404).json({error: "The email is exist"});
-    }
+        if(isMatch){
+            return res.status(404).json({error: "The email is exist"});
+        }
 
-    const hashedPassword = await encry.hash(password , 10);
-    const user = new User({name,email, password: hashedPassword});
-    await user.save();
+        const hashedPassword = await encry.hash(password , 10);
+        const user = new User({name,email, password: hashedPassword});
+        await user.save();
 
-    const token = jwt.sign({id: user.id}, process.env.JWT_SECRET,{expiresIn:'7d'});
+        const token = jwt.sign({id: user.id}, process.env.JWT_SECRET,{expiresIn:'7d'});
 
-    res.status(200).json({message:"account created"},token);
+        res.status(202).json({message:"account created"},token);
     }catch(err){
         res.status(404).json({message:"signup is"+err });
     }
@@ -65,21 +87,21 @@ app.post("/login",async (req,res)=>{
     try{
 
    
-    const {email,password}=req.body;
-    const user = await User.findOne({email});
+        const {email,password}=req.body;
+        const user = await User.findOne({email});
 
-    if(!user){
-        return res.status(404).json({error:"User not found"});
-    }
+        if(!user){
+            return res.status(404).json({error:"User not found"});
+        }
 
-    const isMatch = await encry.compare(password , user.password);
+        const isMatch = await encry.compare(password , user.password);
 
-    if(!isMatch){
-        return res.status(401).json({error:"Incorrect Password"});
-    }
+        if(!isMatch){
+            return res.status(401).json({error:"Incorrect Password"});
+        }
 
-    const token = jwt.sign({id:user.id},process.env.JWT_SECRET,{expiresIn : '7d'});
-    res.status(200).json({message:"login success"+token});
+        const token = jwt.sign({id:user.id},process.env.JWT_SECRET,{expiresIn : '7d'});
+        res.status(200).json({message:"login success",token});
      }
      catch(err){
         res.status(404).json({mess: "login is"+err });
