@@ -36,40 +36,40 @@ app.post('/receipts',authMiddleware,async (req,res)=>{
 
     try{
 
-        const{storeName,date,total,category,notes,imagePath,userId}=req.body;
+        const{storeName,date,total,category,notes,imagePath}=req.body;
 
         const receipt= new Receipt({
             storeName,
             date,
-            toal,
+            total,
             category,
             notes,
             imagePath,
             userId:req.user.id
         })
-        receipt.save();
+         await  receipt.save();
 
-        res.status(202).json({message:"Valid receipt"},receipt);
+        res.status(202).json({message:"Valid receipt",receipt});
 
     }catch(err){
-    res.status(500).json({message:"Falid to save receipt:"},err);
+    res.status(500).json({message:"Falid to save receipt:"+err});
 
     }
 })
 
-app.get("/receipts",async (req,res)=>{
+app.get('/receipts',authMiddleware,async (req,res)=>{
     try{
 
-   
-    const receipt = await Receipt.find({userId:req.user.id});
-    res.status(200).json(receipt);
+    
+        const receipt = await Receipt.find({userId:req.user.id});
+        res.status(200).json(receipt);
 
     }catch(err){
-        res.status(500).json({message:"Faild to fetch receipt:"},err);
+        res.status(500).json({message:"Faild to fetch receipt:"+ err});
     }
 })
 
-app.post("/signup", async(req,res)=>{
+app.post('/signup', async(req,res)=>{
 
     try{
 
@@ -87,14 +87,14 @@ app.post("/signup", async(req,res)=>{
 
         const token = jwt.sign({id: user.id}, process.env.JWT_SECRET,{expiresIn:'7d'});
 
-        res.status(202).json({message:"account created"},token);
+        res.status(202).json({message:"account created",token});
     }catch(err){
         res.status(404).json({message:"signup is"+err });
     }
 })
 
 
-app.post("/login",async (req,res)=>{
+app.post('/login',async (req,res)=>{
 
     try{
 
