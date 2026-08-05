@@ -57,6 +57,18 @@ app.post('/receipts',authMiddleware,async (req,res)=>{
     }
 })
 
+app.get("/receipts",async (req,res)=>{
+    try{
+
+   
+    const receipt = await Receipt.find({userId:req.user.id});
+    res.status(200).json(receipt);
+
+    }catch(err){
+        res.status(500).json({message:"Faild to fetch receipt:"},err);
+    }
+})
+
 app.post("/signup", async(req,res)=>{
 
     try{
