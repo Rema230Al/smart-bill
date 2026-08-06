@@ -1,5 +1,10 @@
-document.getElementById('signup-form').addEventListener('submit',async (event)=>{
+const exToken = localStorage.getItem('token');
+    if(exToken){
+    window.location('index.html');
+    }
 
+document.getElementById('signup-form').addEventListener('submit',async (event)=>{
+    event.preventDefault();
 
     const name =document.getElementById('fullname').value;
     const email=document.getElementById('email').value;
@@ -11,7 +16,7 @@ document.getElementById('signup-form').addEventListener('submit',async (event)=>
 
             method:"POST",
             headers:{'Content-Type': 'application/json'},
-            body: json.stringify({name,email,password})
+            body: JSON.stringify({name,email,password})
         });
 
         const data = await respons.json();
@@ -25,7 +30,7 @@ document.getElementById('signup-form').addEventListener('submit',async (event)=>
 
 
     }catch(err){
-        console.log("Signup request falid"+err);
+        console.error("Signup request failed"+err);
     }
 
 
