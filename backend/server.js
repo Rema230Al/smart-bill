@@ -6,30 +6,32 @@ const encry = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const express = require("express");
 const multer = require("multer");
-const upload = multer({dest:"/upload"});
+//an ABSOLUTE path " upload/ "
+const upload = multer({dest:"uploads/"});
 const app = express();
 app.use(express.json()); 
+app.use(("/uploads"),express.static('uploads'));
 const {authMiddleware}= require("./middleware/auth");
 const {extractText}= require("./services/ocrService");
 const {parseReceiptText}= require('./services/receiptService');
 
+                                        //that mean only one file and the key is receipt
+app.post("/receipts/scan",authMiddleware,upload.single("receipt"),async (req,res) => {
 
-// app.post("/receipts/scan",upload.single("receipt"),async (req,res) => {
+    try{
+    const rawText =await extractText(req.file.path);
+    const text = parseReceiptText(rawText);
+     res.status(200).json({
+            ...text,
+            imagePath: req.file.path   
+        });
 
-//     try{
-//     const rawText =await extractText(req.file.path);
-//     const text = parseReceiptText(rawText);
-//      res.status(200).json({
-//             ...text,
-//             imagePath: req.file.path   
-//         });
+    }catch(err){
+        console.log("the error is"+err);
+        res.status(404).json({error: "error"+err})
+    }
 
-//     }catch(err){
-//         console.log("the error is"+err);
-//         res.status(404).json({error: "error"+err})
-//     }
-
-// })
+})
 
 
 app.post('/receipts',authMiddleware,async (req,res)=>{
