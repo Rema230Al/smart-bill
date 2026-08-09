@@ -1,6 +1,6 @@
 const exToken = localStorage.getItem('token');
     if(exToken){
-    window.location('index.html');
+    window.location.href='index.html';
     }
 
 document.getElementById('signup-form').addEventListener('submit',async (event)=>{
@@ -12,18 +12,18 @@ document.getElementById('signup-form').addEventListener('submit',async (event)=>
 
     try{
 
-        const respons= await fetch('http://localhost:3000/signup',{
+        const response= await fetch('http://localhost:3000/signup',{
 
             method:"POST",
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({name,email,password})
         });
 
-        const data = await respons.json();
+        const data = await response.json();
 
-        if(respons.ok){
+        if(response.ok){
            localStorage.setItem('token',data.token);
-           window.location('index.html');
+           window.location.href='index.html';
         }else{
             alert(data.error);
         }
