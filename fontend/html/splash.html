@@ -5,18 +5,31 @@
     <meta name="viewport"content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/splash.css">
 </head>
-<body>
 
 
-<div class="splash-screen" id="splash-screen">
-    <div class="printer-line" id="printer-line"></div>
-    <div class="splash-slip" id="splash-slip">
-        <p class="splash-logo">RECEIPTVAULT</p>
-        <div class="splash-divider"></div>
-        <p class="splash-text">loading...</p>
+
+<body class="app-page">
+
+    <div id="splash-screen" style="display:none;">
+        <div class="splash-slip-wrap">
+            <div id="splash-slip" class="splash-slip">
+                <p class="splash-logo">RECEIPTVAULT</p>
+                <div class="splash-divider"></div>
+                <p class="splash-status" id="splash-status">loading...</p>
+            </div>
+        </div>
+        <div id="printer-line" class="printer-line"></div>
     </div>
-</div>
 
+    <header class="navbar">
+        <!-- your existing navbar -->
+    </header>
+
+    <!-- rest of page -->
+
+    <script src="../js/splash.js"></script>
 </body>
+
+
