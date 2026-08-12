@@ -8,43 +8,17 @@
     z-index: 9999;
     transition: background-color 0.8s ease-in-out;
 }
-
-.splash-slip-wrap {
-    position: relative;
-    width: 180px;
-    height: 60px;
-    overflow: hidden;
-}
-
-.splash-slip {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 180px;
-    background: #F3F3F3;
-    padding: 16px 18px;
-    box-sizing: border-box;
-    transform: translateY(20px);
-    opacity: 0;
-}
-
 .splash-logo {
     text-align: center;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: 1px;
     color: #322620;
     margin-bottom: 8px;
 }
-
-.splash-divider {
-    border-top: 1px dashed #C7C1B0;
-    margin-bottom: 8px;
-}
-
 .splash-status {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
+    font-size: 13px;
+    font-family: "DM Sans", Arial, Helvetica, sans-serif;
     color: #8A8474;
     text-align: center;
     margin: 0;
@@ -55,10 +29,52 @@
     top: calc(50% - 30px);
     left: 50%;
     transform: translateX(-50%) scaleX(0);
-    width: 196px;
-    height: 8px;
+    width: 290px;
+    height: 20px;
     background: #B67F1E;
     border-radius: 2px;
     opacity: 0;
     transition: transform 0.4s ease-out, opacity 0.3s ease-out;
+}
+.splash-content-wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#printer-line {
+    width: 450px;
+    height: 15px;
+    background: #B67F1E;
+    border-radius: 2px;
+    opacity: 0;
+    transform: scaleX(0);
+    margin-bottom: 8px;
+}
+
+#splash-slip {
+    width: 400px;
+    background: #F3F3F3;
+    padding: 35px 40px;
+    box-sizing: border-box;
+    opacity: 0;
+    text-align: center;
+}#tile-grid {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.wipe-tile {
+    background: #322620;
+    opacity: 0;
 }

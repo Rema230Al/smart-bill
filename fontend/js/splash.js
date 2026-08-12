@@ -1,47 +1,73 @@
-const splashHTML = `
-    <div id="splash-screen" style="display:none;">
-        <div class="splash-slip-wrap">
-            <div id="splash-slip" class="splash-slip">
+function buildTileTransition() {
+    const html = `
+        <div id="tile-grid"></div>
+        <div class="splash-content-wrap">
+            <div id="printer-line"></div>
+            <div id="splash-slip">
                 <p class="splash-logo">RECEIPTVAULT</p>
                 <div class="splash-divider"></div>
-                <p class="splash-status" id="splash-status">loading...</p>
+                <p class="splash-status">loading...</p>
             </div>
         </div>
-        <div id="printer-line" class="printer-line"></div>
-    </div>
-`;
-document.body.insertAdjacentHTML('afterbegin', splashHTML);
+    `;
+    document.body.insertAdjacentHTML('afterbegin', html);
 
+    const grid = document.getElementById('tile-grid');
+    for (let i = 0; i < 84; i++) {
+        const tile = document.createElement('div');
+        tile.className = 'wipe-tile';
+        grid.appendChild(tile);
+    }
+}
 
-document.querySelectorAll('.nav-links a,.nav-actions a, .signup-text a').forEach(link => {
+function playTileTransition(destination) {
+    buildTileTransition();
+    const tiles = document.querySelectorAll('.wipe-tile');
+
+    const tl = gsap.timeline();
+
+    tl.to(tiles, {
+        opacity: 1,
+        duration: 0.2,
+        stagger: { each: 0.004, from: 'random' }
+    });
+
+    tl.to('#printer-line', {
+        opacity: 1,
+        scaleX: 1,
+        duration: 0.2,
+        ease: 'power2.out'
+    }, '-=0.03');
+
+    tl.to('#splash-slip', {
+        opacity: 1,
+        duration: 0.25,
+        ease: 'power2.out'
+    }, '-=0.03');
+
+    tl.to({}, { duration: 0.9 });   
+
+    tl.to(['#splash-slip', '#printer-line'], {
+        opacity: 0,
+        duration: 0.15
+    });
+
+    tl.to(tiles, {
+        opacity: 0,
+        duration: 0.2,
+        stagger: { each: 0.004, from: 'random' },
+        onComplete: () => {
+            window.location.href = destination;
+        }
+    }, '-=0.05');
+}
+
+document.querySelectorAll('.nav-links a, .nav-actions a, .signup-text a').forEach(link => {
     link.addEventListener('click', function(event) {
-        event.preventDefault();
         const destination = this.getAttribute('href');
+        if (!destination || destination.startsWith('#')) return;
 
-        const splash = document.getElementById('splash-screen');
-        const line = document.getElementById('printer-line');
-        const slip = document.getElementById('splash-slip');
-
-        splash.style.display = 'flex';
-        splash.style.backgroundColor = '#F3F3F3';
-
-        requestAnimationFrame(() => {
-            splash.style.backgroundColor = 'rgb(50,38,32)';
-        });
-
-        setTimeout(() => {
-            line.style.opacity = '1';
-            line.style.transform = 'translateX(-50%) scaleX(1)';
-        }, 400);
-
-        setTimeout(() => {
-            slip.style.transition = 'transform 0.6s cubic-bezier(0.22,1,0.36,1), opacity 0.2s ease-out';
-            slip.style.opacity = '1';
-            slip.style.transform = 'translateY(-10px)';
-        }, 1000);
-
-        setTimeout(() => {
-            window.location.href = destination;   
-        }, 2000);
+        event.preventDefault();
+        playTileTransition(destination);   
     });
 });
