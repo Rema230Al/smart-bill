@@ -4,6 +4,7 @@ const User = require("./models/user");
 const Receipt = require("./models/receipt");
 const encry = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cors = require('cors');
 const express = require("express");
 const multer = require("multer");
 //an ABSOLUTE path " upload/ "
@@ -15,6 +16,8 @@ const {authMiddleware}= require("./middleware/auth");
 const {extractText}= require("./services/ocrService");
 const {parseReceiptText}= require('./services/receiptService');
 
+app.use(cors());
+app.use(express.json());
                                         //that mean only one file and the key is receipt
 app.post("/receipts/scan",authMiddleware,upload.single("receipt"),async (req,res) => {
 
