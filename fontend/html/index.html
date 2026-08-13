@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/splash.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 </head>
 <body>
 
 <header class="navbar">
     <a href="#" class="logo" aria-label="ReceiptVault home page">ReceiptVault</a>
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
     <nav class="nav-links" aria-label="Main navigation">
         <a href="../html/index.html" class="active">Home</a>
         <a href="../html/new-receipt.html">Upload</a>
@@ -19,8 +25,7 @@
         <a href="#features">Features</a>
     </nav>
     <div class="nav-actions">
-        <a href="../html/login.html" class="login-link">Log in</a>
-        <a href="#" class="btn-dark">Get started</a>
+        <a href="../html/login.html" class="login-link btn-dark ">Log in</a>
     </div>
 </header>
 
@@ -139,4 +144,5 @@
 <!-- <script src="../js/script.js"></script> -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
  <script src="../js/splash.js"></script>
+ <script src="../js/nav.js"></script>
 </body>
