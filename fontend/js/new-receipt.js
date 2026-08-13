@@ -24,7 +24,7 @@ async function handleFileSelected(event){
         document.getElementById('store-name').value=data.storeName||'';
         document.getElementById('date').value=data.date||'';
         document.getElementById('total').value=data.total||'';
-        document.getElementsByName('note').value=data.note||'';
+        document.getElementById('note').value=data.note||'';
 
         currentImagePath=data.imagePath;
 
@@ -41,8 +41,8 @@ document.getElementById('save-receipt-btn').addEventListener('click',async (even
         storeName:document.getElementById('store-name').value,
         date:document.getElementById('date').value,
         total: document.getElementById('total').value,
-        category: document.getElementById('category').value,
-        notes: document.getElementById('notes').value,
+        category: document.querySelector('.category').value,
+        notes: document.getElementById('note').value,
         imagePath: currentImagePath
     }
 
@@ -50,7 +50,7 @@ document.getElementById('save-receipt-btn').addEventListener('click',async (even
 
         const response=await fetch('http://localhost:3000/receipts',{
             method:"POST",
-            headers:{'Content-Type': 'Application/json',
+            headers:{'Content-Type': 'application/json',
                 'Authorization': 'Bearer '+ token
             },
             body:JSON.stringify(receiptDtat)

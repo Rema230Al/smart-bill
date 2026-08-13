@@ -84,11 +84,12 @@ main > div:first-child {
     margin-bottom: 0;
 }
 
-.left-sec > div:first-child {
-    font-family: "IBM Plex Mono", monospace;
+.ti-div {
+    /* font-family: "IBM Plex Mono", monospace; */
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 15px;
     color: #B67F1E;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.1px;
     margin-bottom: 20px;
 }
 
@@ -167,10 +168,11 @@ main > div:first-child {
 .row-2 input {
     width: 100%;
 }
-.btn {
-    background: var( --primary-blue);
+
+#save-receipt-btn{
+     background: var(--primary-blue);
     color: #F3F3F3;
-    border: none;
+     border: none;
     /* margin-top: 1.5rem; */
     margin-left: 5px;
     border-radius: 8px;
@@ -180,7 +182,6 @@ main > div:first-child {
     font-family: "DM Sans", Arial, Helvetica, sans-serif;
     cursor: pointer;
 }
-
 .right-sec {
     margin-left: 1rem;
     grid-area: right;

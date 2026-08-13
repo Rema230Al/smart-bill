@@ -29,37 +29,27 @@ function playTileTransition(destination) {
     tl.to(tiles, {
         opacity: 1,
         duration: 0.2,
-        stagger: { each: 0.004, from: 'random' }
+        stagger: { each: 0.003, from: 'random' }
     });
 
     tl.to('#printer-line', {
         opacity: 1,
         scaleX: 1,
-        duration: 0.2,
+        duration: 0.80,
         ease: 'power2.out'
-    }, '-=0.03');
+    }, '-=0.02');
 
     tl.to('#splash-slip', {
         opacity: 1,
-        duration: 0.25,
+        duration: 0.90,
         ease: 'power2.out'
-    }, '-=0.03');
+    }, '-=0.02');
 
-    tl.to({}, { duration: 0.9 });   
-
-    tl.to(['#splash-slip', '#printer-line'], {
-        opacity: 0,
-        duration: 0.15
+   
+    tl.call(() => {
+        sessionStorage.setItem('splashReveal', 'true');
+        window.location.href = destination;
     });
-
-    tl.to(tiles, {
-        opacity: 0,
-        duration: 0.2,
-        stagger: { each: 0.004, from: 'random' },
-        onComplete: () => {
-            window.location.href = destination;
-        }
-    }, '-=0.05');
 }
 
 document.querySelectorAll('.nav-links a, .nav-actions a, .signup-text a').forEach(link => {
@@ -68,6 +58,38 @@ document.querySelectorAll('.nav-links a, .nav-actions a, .signup-text a').forEac
         if (!destination || destination.startsWith('#')) return;
 
         event.preventDefault();
-        playTileTransition(destination);   
+        playTileTransition(destination);
     });
+});
+
+
+
+
+window.addEventListener('DOMContentLoaded', function() {
+    const shouldReveal = sessionStorage.getItem('splashReveal');
+
+    if (shouldReveal) {
+        sessionStorage.removeItem('splashReveal');
+
+        buildTileTransition();
+        const tiles = document.querySelectorAll('.wipe-tile');
+
+        
+        gsap.set(tiles, { opacity: 1 });
+        gsap.set('#printer-line', { opacity: 1, scaleX: 1 });
+        gsap.set('#splash-slip', { opacity: 1 });
+
+        const tl = gsap.timeline({ delay: 0.15 });   
+
+        tl.to(['#splash-slip', '#printer-line'], {
+            opacity: 0,
+            duration: 0.15
+        });
+
+        tl.to(tiles, {
+            opacity: 0,
+            duration: 0.2,
+            stagger: { each: 0.003, from: 'random' }
+        }, '-=0.05');
+    }
 });

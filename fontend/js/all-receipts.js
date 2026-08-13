@@ -43,7 +43,7 @@ function renderReceipt(receipts){
         const stack = document.createElement("div");
         stack.className='receipt-stack';
 
-        container.innerHTML=`
+        stack.innerHTML=`
         <div class="paper-layer layer-1"></div>
             <div class="paper-layer layer-2"></div>
             <div class="receipt-content">
