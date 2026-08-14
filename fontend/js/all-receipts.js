@@ -2,6 +2,7 @@
 //add to the front
 const token = localStorage.getItem('token');
 if(!token){
+    alert("please login first");
     window.location.href="login.html";
 }
 

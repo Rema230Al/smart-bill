@@ -3,6 +3,7 @@
 //post the new receipt for sp customer
 const token = localStorage.getItem('token');
 if(!token){
+    alert("please login first");
     window.location.href='login.html';
 }
 
