@@ -26,6 +26,9 @@ body {
     padding: 60px 40px;
     margin-bottom: 4rem;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .hero-tag {
@@ -142,7 +145,8 @@ body {
     text-align: center;
     margin-top: 2rem;
     height: 20rem;
-    background-color: #e9e5dc4c;
+    background-color: #e9e5dc5e;
+    /* background-color: #cfcbc3b5; */
     background-image: repeating-linear-gradient(
         0deg,
         transparent,
@@ -150,6 +154,11 @@ body {
         rgba(97, 69, 55, 0.171) 110px,
         rgba(50, 38, 32, 0.04) 111px
     );
+
+    position: relative;
+    z-index: 2;
+    margin-top: -60px;
+    border-radius: 24px 24px 0 0;
 }
 
 .features-inner {
