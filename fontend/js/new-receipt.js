@@ -5,6 +5,9 @@ const token = localStorage.getItem('token');
 if(!token){
     alert("please login first");
     window.location.href='login.html';
+}else{
+    document.getElementById('choose-file').addEventListener('change',handleFileSelected);
+    document.getElementById('take-photo').addEventListener('change',handleFileSelected);
 }
 
 let currentImagePath = '';
@@ -73,5 +76,3 @@ document.getElementById('save-receipt-btn').addEventListener('click',async (even
 })
 
 
-document.getElementById('choose-file').addEventListener('change',handleFileSelected);
-document.getElementById('take-photo').addEventListener('change',handleFileSelected);
