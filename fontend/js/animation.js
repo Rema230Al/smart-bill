@@ -40,3 +40,29 @@ gsap.to('.hero', {
     ease: 'none',
     scrollTrigger: scrollConfig
 });
+
+
+//              ######################3
+const heroTl = gsap.timeline({
+  defaults: { ease: 'power3.out' }
+});
+
+heroTl
+  .from('.hero-tag', {
+    y: -30, opacity: 0, duration: 0.6
+  })
+  .from('#hero-title', {
+    y: -40, opacity: 0, duration: 0.7
+  }, '-=0.3')
+  .from('.hero-desc', {
+    y: -20, opacity: 0, duration: 0.6
+  }, '-=0.4')
+  .from('.hero-buttons', {
+    y: -15, opacity: 0, duration: 0.5
+  }, '-=0.3')
+  .from('.receipt-card', {
+    y: -50, opacity: 0, duration: 0.8
+  }, '-=0.6')
+  .from('.receipt-step', {
+    y: -15, opacity: 0, duration: 0.4, stagger: 0.15
+  }, '-=0.4');
