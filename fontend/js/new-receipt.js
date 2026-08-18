@@ -12,7 +12,9 @@ if(!token){
 
 let currentImagePath = '';
 async function handleFileSelected(event) {
+      console.log('handleFileSelected triggered');
     const imgFile = event.target.files[0];
+    console.log('File selected:', imgFile);
     if (!imgFile) return;
 
     showUploadConfirmation(imgFile);
@@ -26,7 +28,7 @@ async function handleFileSelected(event) {
             headers: { 'Authorization': 'Bearer ' + token },
             body: formData
         });
-
+console.log('Response status:', response.status);
         const data = await response.json();
         document.getElementById('store-name').value = data.storeName || '';
         document.getElementById('date').value = data.date || '';
@@ -34,6 +36,7 @@ async function handleFileSelected(event) {
         document.getElementById('note').value = data.note || '';
 
         currentImagePath = data.imagePath;
+        console.log('Data received from scan:', data);
         console.log('imagePath received from scan:', data.imagePath);
         markUploadComplete();
 
