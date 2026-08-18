@@ -6,10 +6,9 @@ Keeping track of paper receipts is a hassle — they get lost, faded, or thrown 
 
 ReceiptVault is deployed and available to try online.
 
-🔗 **Try it here:** [ReceiptVault Live Demo]([https://receiptvault-7iwg.onrender.com)])
+🔗 **Try it here:** https://receiptvault-7iwg.onrender.com
 
 > Note: The application is hosted on Render, so the server may take a few seconds to wake up on the first request.
-
 ## Tech Stack
 
 Node.js, Express, MongoDB, JWT authentication, Tesseract.js (OCR)
