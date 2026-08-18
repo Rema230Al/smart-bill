@@ -11,31 +11,73 @@ if(!token){
 }
 
 let currentImagePath = '';
-async function handleFileSelected(event){
+async function handleFileSelected(event) {
+    const imgFile = event.target.files[0];
+    if (!imgFile) return;
 
-    const imgFile=event.target.files[0];
+    showUploadConfirmation(imgFile);
+
     const formData = new FormData();
-    formData.append('receipt',imgFile);
+    formData.append('receipt', imgFile);
 
-    try{
-        const response =await fetch('https://receiptvault-7iwg.onrender.com/receipts/scan',{
-            method:"POST",
-            headers:{'Authorization': 'Bearer '+ token},
-            body:formData 
-        })
+    try {
+        const response = await fetch('https://receiptvault-7iwg.onrender.com/receipts/scan', {
+            method: "POST",
+            headers: { 'Authorization': 'Bearer ' + token },
+            body: formData
+        });
 
         const data = await response.json();
-        document.getElementById('store-name').value=data.storeName||'';
-        document.getElementById('date').value=data.date||'';
-        document.getElementById('total').value=data.total||'';
-        document.getElementById('note').value=data.note||'';
+        document.getElementById('store-name').value = data.storeName || '';
+        document.getElementById('date').value = data.date || '';
+        document.getElementById('total').value = data.total || '';
+        document.getElementById('note').value = data.note || '';
 
-        currentImagePath=data.imagePath;
+        currentImagePath = data.imagePath;
 
-    }catch(err){
-        console.error("Scan faild"+err);
+        markUploadComplete();
+
+    } catch (err) {
+        console.error("Scan failed: " + err);
+        markUploadFailed();
     }
+}
 
+function showUploadConfirmation(file) {
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+        const previewHTML = `
+            <div id="upload-confirm" class="upload-confirm">
+                <img src="${event.target.result}" class="upload-thumb">
+                <div class="upload-info">
+                    <p class="upload-filename">${file.name}</p>
+                    <p class="upload-status" id="upload-status">
+                        <i class="ti ti-loader-2 spin"></i> Processing receipt...
+                    </p>
+                </div>
+            </div>
+        `;
+        document.querySelector('.upload').insertAdjacentHTML('beforeend', previewHTML);
+    };
+
+    reader.readAsDataURL(file);
+}
+
+function markUploadComplete() {
+    const status = document.getElementById('upload-status');
+    if (status) {
+        status.innerHTML = '<i class="ti ti-circle-check"></i> Fields filled in — review below';
+        status.classList.add('success');
+    }
+}
+
+function markUploadFailed() {
+    const status = document.getElementById('upload-status');
+    if (status) {
+        status.innerHTML = '<i class="ti ti-alert-circle"></i> Something went wrong, try again';
+        status.classList.add('error');
+    }
 }
 
 document.getElementById('save-receipt-btn').addEventListener('click',async (event)=>{

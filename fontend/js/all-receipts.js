@@ -92,7 +92,7 @@ function openReceiptModal(receipt) {
                     <i class="ti ti-x modal-close" id="modal-close"></i>
                 </div>
                 <div class="modal-body">
-                    <img src="https://receiptvault-7iwg.onrender.com/${receipt.imagePath}" class="modal-image">
+                    <img src="https://receiptvault-7iwg.onrender.com/${receipt.imagePath}" class="modal-image" id="receipt-image">
                     <div class="modal-top-row">
                         <p class="modal-store">${receipt.storeName}</p>
                         <span class="modal-total">$${receipt.total}</span>
@@ -108,57 +108,40 @@ function openReceiptModal(receipt) {
     `;
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-    const overlay = document.getElementById('receipt-modal-overlay');
-    const box = document.getElementById('modal-box');
-
-    gsap.set(overlay, 
-        { opacity: 0 });
-
-    gsap.set(box,
-        { opacity: 0,
-        scale: 0.7 
-    });
-
-    gsap.to(overlay,
-        { opacity: 1,
-        duration: 0.4 
-    });
-
-    gsap.to(box,
-        { opacity: 1,
-        scale: 1, 
-        duration: 0.8, 
-        ease: 'back.out(1.6)' 
-    });
+    // ... نفس كود الأنيميشن اللي عندك ...
 
     document.getElementById('modal-close').addEventListener('click', closeReceiptModal);
-    overlay.addEventListener('click', function(event) {
+    document.getElementById('receipt-modal-overlay').addEventListener('click', function(event) {
         if (event.target.id === 'receipt-modal-overlay') closeReceiptModal();
     });
-}
 
-function closeReceiptModal() {
-    const overlay = document.getElementById('receipt-modal-overlay');
-    const box = document.getElementById('modal-box');
-    if (!overlay) return;
-
-    gsap.to(box, 
-        { opacity: 0,
-        scale: 0.85,
-        duration: 0.3,
-        ease: 'power1.in' 
-    });
-
-    gsap.to(overlay, {
-        opacity: 0,
-        duration: 0.35,
-        delay: 0.05,
-        onComplete: () => {
-            overlay.remove();
-        }
+    // NEW: الضغط على الصورة يفتح صورة كاملة
+    document.getElementById('receipt-image').addEventListener('click', function() {
+        openFullImage(receipt.imagePath);
     });
 }
 
+function openFullImage(imagePath) {
+    const fullImageHTML = `
+        <div id="full-image-overlay" class="full-image-overlay">
+            <img src="https://receiptvault-7iwg.onrender.com/${imagePath}" class="full-image">
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', fullImageHTML);
+
+    const overlay = document.getElementById('full-image-overlay');
+
+    gsap.set(overlay, { opacity: 0 });
+    gsap.to(overlay, { opacity: 1, duration: 0.3 });
+
+    overlay.addEventListener('click', function() {
+        gsap.to(overlay, {
+            opacity: 0,
+            duration: 0.25,
+            onComplete: () => overlay.remove()
+        });
+    });
+}
 
 //                                   ##########################3
 // const token = localStorage.getItem('token');

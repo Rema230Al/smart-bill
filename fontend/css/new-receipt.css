@@ -264,3 +264,55 @@ main > div:first-child {
     margin: 0;
     line-height: 1.6;
 }
+.upload-confirm {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #FFFFFF;
+    border: 1px solid #E2DFD3;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 14px;
+    text-align: left;
+}
+
+.upload-thumb {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.upload-filename {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--primary-blue);
+    margin: 0 0 2px;
+}
+
+.upload-status {
+    font-size: 11px;
+    color: #8A8474;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.upload-status.success {
+    color: #1F6B57;
+}
+
+.upload-status.error {
+    color: #A6402F;
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
