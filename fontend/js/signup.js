@@ -24,7 +24,7 @@ document.getElementById('signup-form').addEventListener('submit',async (event)=>
         if(response.ok){
            localStorage.setItem('token',data.token);
             localStorage.setItem('userName', data.name);
-            window.location.href='index.html';
+            window.location.href='/';
         }else{
             alert(data.error);
         }
