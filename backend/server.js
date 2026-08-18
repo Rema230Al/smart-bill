@@ -102,7 +102,7 @@ app.post('/signup', async(req,res)=>{
 
         const token = jwt.sign({id: user.id}, process.env.JWT_SECRET,{expiresIn:'7d'});
 
-        res.status(202).json({message:"account created",token});
+        res.status(202).json({message:"account created",token, name: user.name});
     }catch(err){
         res.status(404).json({message:"signup is"+err });
     }
@@ -128,7 +128,7 @@ app.post('/login',async (req,res)=>{
         }
 
         const token = jwt.sign({id:user.id},process.env.JWT_SECRET,{expiresIn : '7d'});
-        res.status(200).json({message:"login success",token});
+        res.status(200).json({message:"login success",token, name: user.name});
      }
      catch(err){
         res.status(404).json({mess: "login is"+err });

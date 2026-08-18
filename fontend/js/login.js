@@ -24,6 +24,7 @@ document.getElementById('login-form').addEventListener('submit', async(event)=>{
 
         if(response.ok){
             localStorage.setItem('token',data.token);
+            localStorage.setItem('userName', data.name);
             window.location.href='index.html';
         }else{
             alert("data.error");

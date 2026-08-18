@@ -23,7 +23,8 @@ document.getElementById('signup-form').addEventListener('submit',async (event)=>
 
         if(response.ok){
            localStorage.setItem('token',data.token);
-           window.location.href='index.html';
+            localStorage.setItem('userName', data.name);
+            window.location.href='index.html';
         }else{
             alert(data.error);
         }
