@@ -109,7 +109,8 @@ document.getElementById('save-receipt-btn').addEventListener('click',async (even
             window.location.href='all-receipt.html';
         }else{
               const data = await response.json();
-            alert(data.error || 'Failed to save receipt');
+    console.log('Save error details:', data);  
+    alert(data.error || data.message || 'Failed to save receipt');
         }
     }catch(err){
         console.error("post receipt faild"+err);
