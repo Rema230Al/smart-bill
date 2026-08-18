@@ -143,4 +143,13 @@ function renderReceipt(receipts) {
 
         container.appendChild(stack);
     });
+
+     const cards = document.querySelectorAll('.receipt-stack');
+    gsap.from(cards, {
+        opacity: 0,
+        x: -30,
+        duration: 0.5,
+        ease: 'power2.out',
+        stagger: 1
+    });
 }

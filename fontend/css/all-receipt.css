@@ -37,6 +37,15 @@ body.app-page {
     width: 200px;
     height: 230px;
     cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.receipt-stack:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+
+.receipt-stack:hover .receipt-content {
+    box-shadow: 0 10px 24px rgba(50, 38, 32, 0.22);
 }
 
 .paper-layer {
@@ -64,6 +73,7 @@ body.app-page {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    transition: box-shadow 0.25s ease;
 }
 
 .receipt-date {
@@ -75,16 +85,12 @@ body.app-page {
 }
 
 .receipt-store {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--primary-blue);
-    margin: 0;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 17px;
     letter-spacing: 0.5px;
     font-weight: 600;
     margin: 8px 0 8px;
-    color: var( --primary-blue);
+    color: var(--primary-blue);
 }
 
 .receipt-line {
@@ -94,20 +100,15 @@ body.app-page {
 }
 
 .receipt-total {
-    /* font-family: "IBM Plex Mono", monospace; */
-    font-size: 13px;
-    /* color: var(--red); */
-    font-weight: 500;
     font-family: "IBM Plex Mono", monospace;
     font-size: 14px;
-    font-weight: 30px;
+    font-weight: 500;
     color: #B67F1E;
 }
 
 .hint-text {
-    font-size: 5px;
-    margin: 25px 0 0;
     font-size: 14px;
+    margin: 25px 0 0;
     color: #8A8474;
     line-height: 1.7;
 }
