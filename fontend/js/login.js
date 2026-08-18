@@ -23,6 +23,7 @@ document.getElementById('login-form').addEventListener('submit', async(event)=>{
         const data= await response.json();
 
         if(response.ok){
+            console.log('Full data from login:', data);
             localStorage.setItem('token',data.token);
             localStorage.setItem('userName', data.name);
             window.location.href='index.html';
