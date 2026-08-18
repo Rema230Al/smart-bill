@@ -12,7 +12,7 @@ if(!token){
 async function loadReceipt(){
 
     try{
-        const response= await fetch('http://localhost:3000/receipts',{
+        const response= await fetch('https://receiptvault-7iwg.onrender.com/receipts',{
             method:"GET",
             headers:{ 'Authorization': 'Bearer ' + token }
         })
@@ -102,7 +102,7 @@ function showLoginToast() {
 
 async function loadReceipt() {
     try {
-        const response = await fetch('http://localhost:3000/receipts', {
+        const response = await fetch('https://receiptvault-7iwg.onrender.com/receipts', {
             method: "GET",
             headers: { 'Authorization': 'Bearer ' + token }
         });

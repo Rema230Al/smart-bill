@@ -18,7 +18,7 @@ async function handleFileSelected(event){
     formData.append('receipt',imgFile);
 
     try{
-        const response =await fetch('http://localhost:3000/receipts/scan',{
+        const response =await fetch('https://receiptvault-7iwg.onrender.com/receipts/scan',{
             method:"POST",
             headers:{'Authorization': 'Bearer '+ token},
             body:formData 
@@ -52,7 +52,7 @@ document.getElementById('save-receipt-btn').addEventListener('click',async (even
 
     try{
 
-        const response=await fetch('http://localhost:3000/receipts',{
+        const response=await fetch('https://receiptvault-7iwg.onrender.com/receipts',{
             method:"POST",
             headers:{'Content-Type': 'application/json',
                 'Authorization': 'Bearer '+ token
