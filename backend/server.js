@@ -16,8 +16,18 @@ const {authMiddleware}= require("./middleware/auth");
 const {extractText}= require("./services/ocrService");
 const {parseReceiptText}= require('./services/receiptService');
 
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, '../fontend')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../fontend/html/index.html'));
+});
+
 app.use(cors());
 app.use(express.json());
+
+
                                         //that mean only one file and the key is receipt
 app.post("/receipts/scan",authMiddleware,upload.single("receipt"),async (req,res) => {
 
