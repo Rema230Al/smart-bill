@@ -1,6 +1,6 @@
 const exToken = localStorage.getItem('token');
     if(exToken){
-    window.location.href='index.html';
+    window.location.href='/';
     }
 
 document.getElementById('signup-form').addEventListener('submit',async (event)=>{
