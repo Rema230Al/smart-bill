@@ -34,7 +34,7 @@ async function handleFileSelected(event) {
         document.getElementById('note').value = data.note || '';
 
         currentImagePath = data.imagePath;
-
+        console.log('imagePath received from scan:', data.imagePath);
         markUploadComplete();
 
     } catch (err) {
@@ -82,7 +82,7 @@ function markUploadFailed() {
 
 document.getElementById('save-receipt-btn').addEventListener('click',async (event)=>{
     event.preventDefault();
-
+ console.log('currentImagePath at save time:', currentImagePath); 
     const receiptDtat={
         storeName:document.getElementById('store-name').value,
         date:document.getElementById('date').value,
