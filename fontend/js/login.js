@@ -13,7 +13,7 @@ document.getElementById('login-form').addEventListener('submit', async(event)=>{
 
 
     try{
-        const response= await fetch('https://receiptvault-7iwg.onrender.com/login',{
+        const response= await fetch('https://receiptvault-7iwg.onrender.com/html/login',{
 
             method: "POST",
             headers:{"Content-Type": "application/json"},

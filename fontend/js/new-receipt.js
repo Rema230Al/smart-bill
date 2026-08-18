@@ -18,7 +18,7 @@ async function handleFileSelected(event){
     formData.append('receipt',imgFile);
 
     try{
-        const response =await fetch('https://receiptvault-7iwg.onrender.com/receipts/scan',{
+        const response =await fetch('https://receiptvault-7iwg.onrender.com/html/receipts/scan',{
             method:"POST",
             headers:{'Authorization': 'Bearer '+ token},
             body:formData 

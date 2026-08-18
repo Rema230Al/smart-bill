@@ -12,7 +12,7 @@ document.getElementById('signup-form').addEventListener('submit',async (event)=>
 
     try{
 
-        const response= await fetch('https://receiptvault-7iwg.onrender.com/signup',{
+        const response= await fetch('https://receiptvault-7iwg.onrender.com/html/signup',{
 
             method:"POST",
             headers:{'Content-Type': 'application/json'},
