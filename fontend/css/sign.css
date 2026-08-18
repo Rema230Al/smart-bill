@@ -244,7 +244,7 @@
 
 .input-box input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(129, 166, 198, 0.2);
+    box-shadow: 0 0 0 4px var(--redd);
 }
 
 .login-options {
@@ -296,7 +296,7 @@
     letter-spacing: 0.5px;
     font-weight: 400;
     cursor: pointer;
-    box-shadow: 0 10px 24px var(--red);
+    /* box-shadow: 0 10px 24px var(--red); */
     transition:
         transform 180ms ease,
         box-shadow 180ms ease,
@@ -305,7 +305,7 @@
 
 .main-btn:hover {
     filter: brightness(0.96);
-    box-shadow: 0 14px 30px var(--red);
+    /* box-shadow: 0 14px 30px ; */
     transform: translateY(-2px);
 }
 
