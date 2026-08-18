@@ -1,0 +1,103 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background:var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-box {
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #E2DFD3;
+}
+
+.modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: var(--primary-blue);
+}
+
+.modal-close {
+    font-size: 18px;
+    color: #8A8474;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #E9E5DC;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    display: block;
+}
+
+.modal-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+}
+
+.modal-store {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: var(--primary-blue);
+    margin: 0;
+}
+
+.modal-total {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 18px;
+    color: #B67F1E;
+    font-weight: 600;
+}
+
+.modal-meta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: #8A8474;
+    margin: 0 0 18px;
+}
+
+.modal-notes {
+    border-top: 1px dashed #DAD5C7;
+    padding-top: 14px;
+}
+
+.modal-notes-label {
+    font-size: 11px;
+    color: #8A8474;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 6px;
+}
+
+.modal-notes-text {
+    font-size: 13px;
+    color: var(--primary-blue);
+    margin: 0;
+}

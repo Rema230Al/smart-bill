@@ -8,7 +8,7 @@ if(!token){
     loadReceipt();
 }
 
-
+let allReceiptsData = []; 
 async function loadReceipt(){
 
     try{
@@ -39,12 +39,14 @@ async function loadReceipt(){
 
 function renderReceipt(receipts){
 
+    allReceiptsData = receipts; 
     const container=document.getElementById('receipt-row');
     container.innerHTML='';
 
     receipts.forEach(receipt => {
         const stack = document.createElement("div");
         stack.className='receipt-stack';
+        stack.dataset.id = receipt._id; 
 
         stack.innerHTML=`
         <div class="paper-layer layer-1"></div>
@@ -74,7 +76,88 @@ function renderReceipt(receipts){
 
 
 
+document.getElementById('receipt-row').addEventListener('click', function(event) {
+    const stack = event.target.closest('.receipt-stack');
+    if (!stack) return;
 
+    const receipt = allReceiptsData.find(r => r._id === stack.dataset.id);
+    openReceiptModal(receipt);
+});
+function openReceiptModal(receipt) {
+    const modalHTML = `
+        <div id="receipt-modal-overlay" class="modal-overlay">
+            <div class="modal-box" id="modal-box">
+                <div class="modal-header">
+                    <span class="modal-title">Receipt Details</span>
+                    <i class="ti ti-x modal-close" id="modal-close"></i>
+                </div>
+                <div class="modal-body">
+                    <img src="https://receiptvault-7iwg.onrender.com/${receipt.imagePath}" class="modal-image">
+                    <div class="modal-top-row">
+                        <p class="modal-store">${receipt.storeName}</p>
+                        <span class="modal-total">$${receipt.total}</span>
+                    </div>
+                    <p class="modal-meta">${receipt.date} &middot; ${receipt.category || ''}</p>
+                    <div class="modal-notes">
+                        <p class="modal-notes-label">Notes</p>
+                        <p class="modal-notes-text">${receipt.notes || 'No notes added'}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    const overlay = document.getElementById('receipt-modal-overlay');
+    const box = document.getElementById('modal-box');
+
+    gsap.set(overlay, 
+        { opacity: 0 });
+
+    gsap.set(box,
+        { opacity: 0,
+        scale: 0.7 
+    });
+
+    gsap.to(overlay,
+        { opacity: 1,
+        duration: 0.4 
+    });
+
+    gsap.to(box,
+        { opacity: 1,
+        scale: 1, 
+        duration: 0.8, 
+        ease: 'back.out(1.6)' 
+    });
+
+    document.getElementById('modal-close').addEventListener('click', closeReceiptModal);
+    overlay.addEventListener('click', function(event) {
+        if (event.target.id === 'receipt-modal-overlay') closeReceiptModal();
+    });
+}
+
+function closeReceiptModal() {
+    const overlay = document.getElementById('receipt-modal-overlay');
+    const box = document.getElementById('modal-box');
+    if (!overlay) return;
+
+    gsap.to(box, 
+        { opacity: 0,
+        scale: 0.85,
+        duration: 0.3,
+        ease: 'power1.in' 
+    });
+
+    gsap.to(overlay, {
+        opacity: 0,
+        duration: 0.35,
+        delay: 0.05,
+        onComplete: () => {
+            overlay.remove();
+        }
+    });
+}
 
 
 //                                   ##########################3

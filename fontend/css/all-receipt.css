@@ -41,11 +41,11 @@ body.app-page {
 }
 
 .receipt-stack:hover {
-    transform: translateY(-6px) scale(1.03);
+    transform: translateY(-6px) scale(2);
 }
 
 .receipt-stack:hover .receipt-content {
-    box-shadow: 0 10px 24px rgba(50, 38, 32, 0.22);
+    box-shadow: 0 10px 24px rgba(50, 38, 32, 0.3);
 }
 
 .paper-layer {
