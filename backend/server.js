@@ -18,10 +18,10 @@ const {parseReceiptText}= require('./services/receiptService');
 
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, 'fontend')));
+app.use(express.static(path.join(__dirname, 'زز')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, '..','index.html'));
 });
 
 app.use(cors());
