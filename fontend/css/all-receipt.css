@@ -28,6 +28,7 @@ body.app-page {
     display: flex;
     gap: 28px;
     flex-wrap: wrap;
+    column-gap: 28px;
     row-gap: 50px; 
     padding-bottom: 10px;
     scrollbar-width: none;         

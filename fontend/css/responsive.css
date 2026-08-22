@@ -17,30 +17,6 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* @media (max-width: 768px) {
-    .hamburger-btn {
-        display: flex;
-    }
-
-    .nav-links,
-    .nav-actions {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 8px;
-    }
-
-    .nav-links.open,
-    .nav-actions.open {
-        display: flex;
-    }
-
-    .navbar {
-        flex-wrap: wrap;
-    }
-} */
-
-/* animate the hamburger into an X when open */
 .hamburger-btn.open .hamburger-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -51,9 +27,24 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
+.nav-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.nav-scrim.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
 /* =========================================================
    RESPONSIVE DESIGN
-   Add this below your current hamburger / navbar CSS
 ========================================================= */
 
 
@@ -61,8 +52,6 @@
    TABLET
 ========================= */
 @media (max-width: 1024px) {
-
-    /* ---------- HOME PAGE ---------- */
 
     .hero {
         grid-template-columns: 1fr 1fr;
@@ -96,9 +85,6 @@
         width: 100%;
     }
 
-
-    /* ---------- ALL RECEIPTS PAGE ---------- */
-
     .all-receipts {
         padding: 30px 25px;
         height: auto;
@@ -108,9 +94,6 @@
     .receipt-row {
         gap: 24px;
     }
-
-
-    /* ---------- ADD RECEIPT PAGE ---------- */
 
     main {
         grid-template-columns: 1fr 1fr;
@@ -135,9 +118,6 @@
         padding: 11px 20px;
         margin-left: 0;
     }
-
-
-    /* ---------- LOGIN PAGE ---------- */
 
     .login-left {
         width: 38%;
@@ -165,27 +145,65 @@
 ========================= */
 @media (max-width: 768px) {
 
-    /* ---------- NAVBAR ---------- */
+    /* ---------- NAVBAR / HAMBURGER DRAWER ---------- */
 
     .hamburger-btn {
         display: flex;
-    }
-
-    .nav-links,
-    .nav-actions {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 8px;
-    }
-
-    .nav-links.open,
-    .nav-actions.open {
-        display: flex;
+        order: -1;
     }
 
     .navbar {
+        justify-content: flex-start;
+        gap: 16px;
         flex-wrap: wrap;
+    }
+
+.nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 78%;
+    max-width: 320px;
+    background: var(--primary-blue);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 70px 28px 0;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 1000;
+}
+
+.nav-actions {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 78%;
+    max-width: 320px;
+    background: var(--primary-blue);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 28px 28px;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 1000;
+    margin-top: 240px;   /* pushes it to start right after nav-links' content */
+}
+
+.nav-links.open,
+.nav-actions.open {
+    transform: translateX(0);
+}
+
+    .nav-links a,
+    .nav-actions a {
+        color: #E9DFC9;
+        font-size: 16px;
+        padding: 10px 0;
     }
 
 
@@ -417,6 +435,23 @@
     }
 
 
+    /* ---------- FOOTER ---------- */
+
+    .site-footer {
+        padding: 20px 20px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .footer-social {
+        gap: 16px;
+    }
+
+
     /* ---------- SPLASH SCREEN ---------- */
 
     #printer-line {
@@ -436,26 +471,6 @@
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(8, 1fr);
     }
-     .hamburger-btn {
-        display: flex;
-    }
-
-    .nav-links,
-    .nav-actions {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 8px;
-    }
-
-    .nav-links.open,
-    .nav-actions.open {
-        display: flex;
-    }
-
-    .navbar {
-        flex-wrap: wrap;
-    }
 }
 
 
@@ -464,8 +479,6 @@
 ========================= */
 @media (max-width: 480px) {
 
-    /* ---------- NAVBAR ---------- */
-
     .navbar {
         padding-left: 15px;
         padding-right: 15px;
@@ -473,15 +486,7 @@
 
     .nav-links,
     .nav-actions {
-        align-items: stretch;
-    }
-
-    .nav-links a,
-    .nav-actions a,
-    .nav-actions button {
-        width: 100%;
-        box-sizing: border-box;
-        text-align: center;
+        width: 85%;
     }
 
 
@@ -714,6 +719,21 @@
 
     .login-left .signature.date {
         margin-left: 0;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .site-footer {
+        padding: 16px;
+    }
+
+    .footer-top {
+        gap: 12px;
+    }
+
+    .footer-text {
+        font-size: 11px;
     }
 
 
