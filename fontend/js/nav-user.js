@@ -1,4 +1,4 @@
-const userName = localStorage.getItem('userName');
+// const userName = localStorage.getItem('userName');
 const loginLink = document.querySelector('.login-link');
 
 
