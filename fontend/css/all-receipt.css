@@ -28,6 +28,7 @@ body.app-page {
     display: flex;
     gap: 28px;
     flex-wrap: wrap;
+    row-gap: 50px; 
     padding-bottom: 10px;
     scrollbar-width: none;         
     -ms-overflow-style: none;  
@@ -40,7 +41,7 @@ body.app-page {
     height: 230px;
     cursor: pointer;
     transition: transform 0.25s ease;
-    /* margin-left: 2rem; */
+    margin-left: 3px;
 }
 
 .receipt-stack:hover {
