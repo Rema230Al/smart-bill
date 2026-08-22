@@ -428,20 +428,29 @@
 
     
 
-    .site-footer {
-        padding: 20px 20px;
+    .footer-top {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "logo social"
+            "text  text";
+        align-items: center;
+        gap: 8px 12px;
     }
 
-    .footer-top {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
+    .logo {
+        grid-area: logo;
     }
 
     .footer-social {
+        grid-area: social;
         gap: 16px;
     }
 
+    .footer-text {
+        grid-area: text;
+        font-size: 11px;
+    }
 
     
 
