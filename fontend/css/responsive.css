@@ -43,14 +43,7 @@
 }
 
 
-/* =========================================================
-   RESPONSIVE DESIGN
-========================================================= */
 
-
-/* =========================
-   TABLET
-========================= */
 @media (max-width: 1024px) {
 
     .hero {
@@ -140,12 +133,10 @@
 }
 
 
-/* =========================
-   MOBILE / TABLET
-========================= */
+
 @media (max-width: 768px) {
 
-    /* ---------- NAVBAR / HAMBURGER DRAWER ---------- */
+    
 
     .hamburger-btn {
         display: flex;
@@ -191,7 +182,7 @@
     transform: translateX(-100%);
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: 1000;
-    margin-top: 240px;   /* pushes it to start right after nav-links' content */
+    margin-top: 240px;   
 }
 
 .nav-links.open,
@@ -207,7 +198,7 @@
     }
 
 
-    /* ---------- HOME PAGE ---------- */
+    
 
     .hero {
         grid-template-columns: 1fr;
@@ -283,7 +274,7 @@
     }
 
 
-    /* ---------- ALL RECEIPTS PAGE ---------- */
+    
 
     .all-receipts {
         padding: 28px 20px;
@@ -308,7 +299,7 @@
     }
 
 
-    /* ---------- ADD RECEIPT PAGE ---------- */
+    
 
     main {
         display: grid;
@@ -370,7 +361,7 @@
     }
 
 
-    /* ---------- LOGIN PAGE ---------- */
+    
 
     .login-main {
         flex-direction: column;
@@ -435,7 +426,7 @@
     }
 
 
-    /* ---------- FOOTER ---------- */
+    
 
     .site-footer {
         padding: 20px 20px;
@@ -452,7 +443,7 @@
     }
 
 
-    /* ---------- SPLASH SCREEN ---------- */
+    
 
     #printer-line {
         width: min(85vw, 450px);
@@ -471,12 +462,38 @@
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(8, 1fr);
     }
+/* 
+    .login-main {
+        flex-direction: column;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    
+    .login-left {
+        display: none;
+    }
+
+    
+    .login-right {
+        width: 100%;
+        min-height: 100vh;
+        padding: 90px 20px 40px;
+        box-sizing: border-box;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 420px;
+        margin-top: 0;
+        padding: 2rem 1.6rem;
+    } */
 }
 
 
-/* =========================
-   SMALL MOBILE
-========================= */
+
+
+
 @media (max-width: 480px) {
 
     .navbar {
@@ -490,7 +507,7 @@
     }
 
 
-    /* ---------- HOME PAGE ---------- */
+    
 
     .hero {
         padding: 35px 16px;
@@ -554,7 +571,7 @@
     }
 
 
-    /* ---------- ALL RECEIPTS PAGE ---------- */
+    
 
     .all-receipts {
         padding: 24px 16px;
@@ -582,7 +599,7 @@
     }
 
 
-    /* ---------- ADD RECEIPT PAGE ---------- */
+   
 
     main {
         padding: 0 14px 35px;
@@ -649,7 +666,7 @@
     }
 
 
-    /* ---------- LOGIN PAGE ---------- */
+
 
     .login-left {
         min-height: 300px;
@@ -722,7 +739,7 @@
     }
 
 
-    /* ---------- FOOTER ---------- */
+   
 
     .site-footer {
         padding: 16px;
@@ -737,7 +754,7 @@
     }
 
 
-    /* ---------- SPLASH SCREEN ---------- */
+   
 
     #printer-line {
         width: 88vw;
@@ -769,9 +786,7 @@
 }
 
 
-/* =========================
-   VERY SMALL PHONES
-========================= */
+
 @media (max-width: 360px) {
 
     .hero h1 {
