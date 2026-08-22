@@ -1,7 +1,7 @@
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const navLinks = document.querySelector('.nav-links');
 const navActions = document.querySelector('.nav-actions');
-const userName = localStorage.getItem('userName');
+// const userName = localStorage.getItem('userName');
 const loginLink = document.querySelector('.login-link');
 
 let scrim = document.querySelector('.nav-scrim');
